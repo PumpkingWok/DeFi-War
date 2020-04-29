@@ -1,4 +1,6 @@
+from defiwar.dex.aave import Aave
 from defiwar.dex.compound import Compound
+from defiwar.dex.dydx import DyDx
 from defiwar.dex.one_inch import OneInch
 from defiwar.dex.radar_relay import RadarRelay
 from defiwar.dex.zero_x import ZeroX
@@ -6,7 +8,9 @@ from defiwar.dex.zero_x import ZeroX
 
 if __name__ == "__main__":
 
+    aave_dex = Aave()
     compound_dex = Compound()
+    dydx_dex = DyDx()
     one_inch_dex = OneInch()
     radar_relay_exchange = RadarRelay()
     zero_x_exchange = ZeroX()
@@ -34,3 +38,27 @@ if __name__ == "__main__":
 
     # ZeroX API Calls
     print(zero_x_exchange.get_swap_tokens())
+
+    # Aave GraphQl API
+    query = """
+        {
+            lendingPoolConfigurationHistoryItems(first: 5) {
+                id
+                provider {
+                    id
+                }
+                lendingPool
+                lendingPoolCore
+            }
+            lendingPoolConfigurations(first: 5) {
+                id
+                lendingPool
+                lendingPoolCore
+                lendingPoolParametersProvider
+            }
+        }
+        """
+    print(aave_dex.post_request(query))
+
+    # DyDx API
+    print(dydx_dex.get_markets())
