@@ -3,16 +3,21 @@ from defiwar.dex.compound import Compound
 from defiwar.dex.dydx import DyDx
 from defiwar.dex.one_inch import OneInch
 from defiwar.dex.radar_relay import RadarRelay
+from defiwar.dex.uniswap import Uniswap
 from defiwar.dex.zero_x import ZeroX
 
+from web3 import Web3, HTTPProvider
+from defiwar.dex.common import *
 
 if __name__ == "__main__":
 
+    web3 = Web3(HTTPProvider('https://mainnet.infura.io/v3/2f91050e6c9c4b888d3b722c752766bc'))
     aave_dex = Aave()
     compound_dex = Compound()
     dydx_dex = DyDx()
-    one_inch_dex = OneInch()
+    one_inch_dex = OneInch(web3)
     radar_relay_exchange = RadarRelay()
+    uniswap = Uniswap(web3)
     zero_x_exchange = ZeroX()
 
     # Compound API Calls
@@ -37,7 +42,7 @@ if __name__ == "__main__":
     print(radar_relay_exchange.get_market_history('ZRX-WETH'))'''
 
     # ZeroX API Calls
-    print(zero_x_exchange.get_swap_tokens())
+    #print(zero_x_exchange.get_swap_tokens())
 
     # Aave GraphQl API
     query = """
@@ -62,3 +67,6 @@ if __name__ == "__main__":
 
     # DyDx API
     print(dydx_dex.get_markets())
+    print(one_inch_dex.get_expected_return(dai_token, usdc_token, 100, 100, 0))
+    print(uniswap.get_eth_balance(uni_bat_token))
+    print(uniswap.get_token_balance(bat_token, uni_bat_token))
