@@ -1,4 +1,5 @@
 from defiwar.dex.aave import Aave
+from defiwar.dex.bancor import Bancor
 from defiwar.dex.compound import Compound
 from defiwar.dex.dydx import DyDx
 from defiwar.dex.oasis import Oasis
@@ -15,6 +16,7 @@ if __name__ == "__main__":
 
     web3 = Web3(HTTPProvider('https://mainnet.infura.io/v3/2f91050e6c9c4b888d3b722c752766bc'))
     aave_dex = Aave()
+    bancor_dex = Bancor()
     compound_dex = Compound()
     dydx_dex = DyDx()
     oasis_dex = Oasis()
@@ -105,3 +107,8 @@ if __name__ == "__main__":
     # print(oasis_dex.get_orders())
     print(oasis_dex.get_trades('eth', 'dai', 'limit=2'))
     print(oasis_dex.get_pairs('eth', 'dai'))
+
+    # Bancor API
+    print(bancor_dex.get_historical_volume(to_currency_code='BNT', from_currency_code='ETH', time_frame='week'))
+    print(bancor_dex.get_price_ticker(to_token='BNT', from_token='ETH', display_currency='ETH'))
+    print(bancor_dex.get_available_pairs())
