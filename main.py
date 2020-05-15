@@ -6,6 +6,7 @@ from defiwar.dex.dydx import DyDx
 from defiwar.dex.oasis import Oasis
 from defiwar.dex.one_inch import OneInch
 from defiwar.dex.radar_relay import RadarRelay
+from defiwar.dex.synthetix import Synthetix
 from defiwar.dex.kyber import Kyber
 from defiwar.dex.uniswap import Uniswap
 from defiwar.dex.zero_x import ZeroX
@@ -24,6 +25,7 @@ if __name__ == "__main__":
     oasis_dex = Oasis()
     one_inch_dex = OneInch(web3)
     radar_relay_dex = RadarRelay()
+    synthetix_dex = Synthetix()
     kyber_dex = Kyber()
     uniswap_dex = Uniswap(web3)
     zero_x_dex = ZeroX()
@@ -118,3 +120,19 @@ if __name__ == "__main__":
     # Curve API
     print(curve_fi_dex.a('compound'))
     print(curve_fi_dex.total_supply('compound'))
+
+    # Synthetix API
+    query_s = """
+        {
+            snxholders(orderBy: block, orderDirection: desc) {
+                id
+                balanceOf
+                collateral
+                transferable
+                initialDebtOwnership
+                debtEntryAtIndex
+                block
+            }
+        }
+        """
+    print(synthetix_dex.post_request(query_s))

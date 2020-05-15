@@ -81,7 +81,7 @@ curve_fi_params = {
     }
 }
 
-base_account = 'Your address'
+base_account = Web3.toChecksumAddress('Your address')
 
 
 def append_params(url, *args):
