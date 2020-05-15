@@ -1,6 +1,7 @@
 from defiwar.dex.aave import Aave
 from defiwar.dex.bancor import Bancor
 from defiwar.dex.compound import Compound
+from defiwar.dex.curve_fi import CurveFi
 from defiwar.dex.dydx import DyDx
 from defiwar.dex.oasis import Oasis
 from defiwar.dex.one_inch import OneInch
@@ -14,10 +15,11 @@ from defiwar.dex.common import *
 
 if __name__ == "__main__":
 
-    web3 = Web3(HTTPProvider('https://mainnet.infura.io/v3/2f91050e6c9c4b888d3b722c752766bc'))
+    web3 = Web3(HTTPProvider('Your Infura endpoint'))
     aave_dex = Aave()
     bancor_dex = Bancor()
     compound_dex = Compound()
+    curve_fi_dex = CurveFi(web3)
     dydx_dex = DyDx()
     oasis_dex = Oasis()
     one_inch_dex = OneInch(web3)
@@ -112,3 +114,7 @@ if __name__ == "__main__":
     print(bancor_dex.get_historical_volume(to_currency_code='BNT', from_currency_code='ETH', time_frame='week'))
     print(bancor_dex.get_price_ticker(to_token='BNT', from_token='ETH', display_currency='ETH'))
     print(bancor_dex.get_available_pairs())
+
+    # Curve API
+    print(curve_fi_dex.a('compound'))
+    print(curve_fi_dex.total_supply('compound'))

@@ -28,7 +28,60 @@ uni_knc_token = Web3.toChecksumAddress('0x49c4f9bc14884f6210F28342ceD592A633801a
 uni_weth_token = Web3.toChecksumAddress('0xA2881A90Bf33F03E7a3f803765Cd2ED5c8928dFb')
 uni_zrx_token = Web3.toChecksumAddress('0xaE76c84C9262Cdb9abc0C2c8888e62Db8E22A0bF')
 
-base_account = '0x4B3897e40749587FFBfB2732008d026DB2C8D588'
+# Curve_fi Addresses
+
+curve_fi_params = {
+    'compound': {
+        'swap': {
+            'address': Web3.toChecksumAddress('0xA2B47E3D5c44877cca798226B7B8118F9BFb7A56')
+        },
+        'curve': {
+            'address': Web3.toChecksumAddress('0x845838DF265Dcd2c412A1Dc9e959c7d08537f8a2')
+        }
+    },
+    'usdt': {
+        'swap': {
+            'address': Web3.toChecksumAddress('0x52EA46506B9CC5Ef470C5bf89f17Dc28bB35D85C')
+        },
+        'curve': {
+            'address': Web3.toChecksumAddress('0x9fC689CCaDa600B6DF723D9E47D84d76664a1F23')
+        }
+    },
+    'y': {
+        'swap': {
+          'address': Web3.toChecksumAddress('0x45F783CCE6B7FF23B2ab2D70e416cdb7D6055f51')
+        },
+        'curve': {
+          'address': Web3.toChecksumAddress('0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8')
+        }
+    },
+    'busd': {
+        'swap': {
+            'address': Web3.toChecksumAddress('0x79a8C46DeA5aDa233ABaFFD40F3A0A2B1e5A4F27')
+        },
+        'curve': {
+            'address': Web3.toChecksumAddress('0x3B3Ac5386837Dc563660FB6a0937DFAa5924333B')
+        }
+    },
+    'susdv2': {
+        'swap': {
+            'address': Web3.toChecksumAddress('0xA5407eAE9Ba41422680e2e00537571bcC53efBfD')
+        },
+        'curve': {
+            'address': Web3.toChecksumAddress('0xC25a3A3b969415c80451098fa907EC722572917F')
+        }
+    },
+    'pax': {
+        'swap': {
+            'address': Web3.toChecksumAddress('0x06364f10B501e868329afBc005b3492902d6C763')
+        },
+        'curve': {
+            'address': Web3.toChecksumAddress('0xD905e2eaeBe188fc92179b6350807D8bd91Db0D8')
+        }
+    }
+}
+
+base_account = 'Your address'
 
 
 def append_params(url, *args):
