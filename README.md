@@ -11,10 +11,18 @@ DeFi-War is a tool for:
 How to install
 
 ## Dex Supported
-- Compound
-- 1 Inch
-- Radar Relay
 - 0x
+- 1Inch
+- Aave
+- Bancor
+- Compound
+- Curve
+- DyDx
+- Kyber
+- Oasis
+- Radar Relay
+- Synthetix
+- Uniswap
 
 ## Contribute
 Feel free to open an issue, any contribute is welcome.
