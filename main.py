@@ -55,25 +55,9 @@ if __name__ == "__main__":
     # print(zero_x_dex.get_swap_tokens())
 
     # Aave GraphQl API
-    query = """
-        {
-            lendingPoolConfigurationHistoryItems(first: 5) {
-                id
-                provider {
-                    id
-                }
-                lendingPool
-                lendingPoolCore
-            }
-            lendingPoolConfigurations(first: 5) {
-                id
-                lendingPool
-                lendingPoolCore
-                lendingPoolParametersProvider
-            }
-        }
-        """
-    print(aave_dex.post_request(query))
+    print(aave_dex.graph_request('swaps'))
+    print(aave_dex.graph_request('repays'))
+    print(aave_dex.graph_request('flashLoans'))
 
     # DyDx API
     # print(dydx_dex.get_markets())
@@ -130,17 +114,12 @@ if __name__ == "__main__":
     print(curve_fi_dex.decimals('compound'))
 
     # Synthetix API
-    query_s = """
-        {
-            snxholders(orderBy: block, orderDirection: desc) {
-                id
-                balanceOf
-                collateral
-                transferable
-                initialDebtOwnership
-                debtEntryAtIndex
-                block
-            }
-        }
-        """
-    print(synthetix_dex.post_request(query_s))
+    print(synthetix_dex.graph_request('snxholders', ['id', 'balanceOf', 'collateral', 'transferable']))
+    print(synthetix_dex.graph_request('synthetixes'))
+    print(synthetix_dex.graph_request('transfers'))
+    print(synthetix_dex.graph_request('issueds'))
+    print(synthetix_dex.graph_request('issuers'))
+    print(synthetix_dex.graph_request('burneds'))
+    print(synthetix_dex.graph_request('contractUpdateds'))
+    print(synthetix_dex.graph_request('rewardEscrowHolders'))
+    print(synthetix_dex.graph_request('feesClaimeds'))
