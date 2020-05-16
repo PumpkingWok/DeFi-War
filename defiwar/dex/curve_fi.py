@@ -86,12 +86,127 @@ class CurveFi(object):
 
     # Swap token methods
 
+    def get_virtual_price(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.get_virtual_price().call({'from': base_account})
+        return response
+
+    def calc_token_amount(self, token, amounts, deposit):
+        response = self.curve_fi[token]['swap']['contract'].functions.calc_token_amount(
+            amounts,
+            deposit
+        ).call({'from': base_account})
+        return response
+
+    def get_dy(self, token, i, j, dx):
+        response = self.curve_fi[token]['swap']['contract'].functions.get_dy(
+            i,
+            j,
+            dx
+        ).call({'from': base_account})
+        return response
+
+    def get_dx(self, token, i, j, dy):
+        response = self.curve_fi[token]['swap']['contract'].functions.get_dx(
+            i,
+            j,
+            dy
+        ).call({'from': base_account})
+        return response
+
+    def get_dy_underlying(self, token, i, j, dx):
+        response = self.curve_fi[token]['swap']['contract'].functions.get_dy_underlying(
+            i,
+            j,
+            dx
+        ).call({'from': base_account})
+        return response
+
+    def get_dx_underlying(self, token, i, j, dy):
+        response = self.curve_fi[token]['swap']['contract'].functions.get_dx_underlying(
+            i,
+            j,
+            dy
+        ).call({'from': base_account})
+        return response
+
+    def coins(self, token, arg0):
+        response = self.curve_fi[token]['swap']['contract'].functions.coins(arg0).call({'from': base_account})
+        return response
+
+    def underlying_coins(self, token, arg0):
+        response = self.curve_fi[token]['swap']['contract'].functions.coins(arg0).call({'from': base_account})
+        return response
+
+    def balances(self, token, arg0):
+        response = self.curve_fi[token]['swap']['contract'].functions.balances(arg0).call({'from': base_account})
+        return response
+
     def a(self, token):
         response = self.curve_fi[token]['swap']['contract'].functions.A().call({'from': base_account})
+        return response
+
+    def fee(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.fee().call({'from': base_account})
+        return response
+
+    def admin_fee(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.admin_fee().call({'from': base_account})
+        return response
+
+    def owner(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.owner().call({'from': base_account})
+        return response
+
+    def admin_actions_deadline(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.admin_actions_deadline().call(
+            {'from': base_account}
+        )
+        return response
+
+    def transfer_ownership_deadline(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.transfer_ownership_deadline().call(
+            {'from': base_account}
+        )
+        return response
+
+    def future_a(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.future_a().call({'from': base_account})
+        return response
+
+    def future_fee(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.future_fee().call({'from': base_account})
+        return response
+
+    def future_admin_fee(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.future_admin_fee().call({'from': base_account})
+        return response
+
+    def future_owner(self, token):
+        response = self.curve_fi[token]['swap']['contract'].functions.future_owner().call({'from': base_account})
         return response
 
     # Curve token methods
 
     def total_supply(self, token):
         response = self.curve_fi[token]['curve']['contract'].functions.totalSupply().call({'from': base_account})
+        return response
+
+    def allowance(self, token,  _owner, _spender):
+        response = self.curve_fi[token]['curve']['contract'].functions.allowance().call({'from': base_account})
+        return response
+
+    def name(self, token):
+        response = self.curve_fi[token]['curve']['contract'].functions.name().call({'from': base_account})
+        return response
+
+    def symbol(self, token):
+        response = self.curve_fi[token]['curve']['contract'].functions.name().call({'from': base_account})
+        return response
+
+    def decimals(self, token):
+        response = self.curve_fi[token]['curve']['contract'].functions.decimals().call({'from': base_account})
+        return response
+
+    def balance_of(self, token, arg0):
+        response = self.curve_fi[token]['curve']['contract'].functions.balanceOf(arg0).call({'from': base_account})
         return response

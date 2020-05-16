@@ -120,6 +120,14 @@ if __name__ == "__main__":
     # Curve API
     print(curve_fi_dex.a('compound'))
     print(curve_fi_dex.total_supply('compound'))
+    print(curve_fi_dex.get_virtual_price('compound'))
+    print(curve_fi_dex.coins('compound', 1))
+    print(curve_fi_dex.balances('compound', 1))
+    print(curve_fi_dex.future_fee('compound'))
+    print(curve_fi_dex.future_owner('compound'))
+    print(curve_fi_dex.name('compound'))
+    print(curve_fi_dex.symbol('compound'))
+    print(curve_fi_dex.decimals('compound'))
 
     # Synthetix API
     query_s = """
