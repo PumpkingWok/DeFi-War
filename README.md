@@ -1,5 +1,7 @@
 # DeFi-War
-A python swiss army knife to fight against DeFi
+*Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.*
+
+*- Sun Tzu, The Art of War*
 
 ## Description
 DeFi-War is a tool for:
