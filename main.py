@@ -3,6 +3,7 @@ from defiwar.dex.bancor import Bancor
 from defiwar.dex.compound import Compound
 from defiwar.dex.curve_fi import CurveFi
 from defiwar.dex.dydx import DyDx
+from defiwar.dex.idle_fi import IdleFi
 from defiwar.dex.oasis import Oasis
 from defiwar.dex.one_inch import OneInch
 from defiwar.dex.radar_relay import RadarRelay
@@ -22,6 +23,7 @@ if __name__ == "__main__":
     compound_dex = Compound()
     curve_fi_dex = CurveFi(web3)
     dydx_dex = DyDx()
+    idle_dex = IdleFi(web3)
     oasis_dex = Oasis()
     one_inch_dex = OneInch(web3)
     radar_relay_dex = RadarRelay()
@@ -93,33 +95,39 @@ if __name__ == "__main__":
     # print(oasis_dex.get_prices('eth', 'dai'))
     # print(oasis_dex.get_volumes('eth', 'dai'))
     # print(oasis_dex.get_orders())
-    print(oasis_dex.get_trades('eth', 'dai', 'limit=2'))
-    print(oasis_dex.get_pairs('eth', 'dai'))
+    # print(oasis_dex.get_trades('eth', 'dai', 'limit=2'))
+    # print(oasis_dex.get_pairs('eth', 'dai'))
 
     # Bancor API
-    print(bancor_dex.get_historical_volume(to_currency_code='BNT', from_currency_code='ETH', time_frame='week'))
-    print(bancor_dex.get_price_ticker(to_token='BNT', from_token='ETH', display_currency='ETH'))
-    print(bancor_dex.get_available_pairs())
+    # print(bancor_dex.get_historical_volume(to_currency_code='BNT', from_currency_code='ETH', time_frame='week'))
+    # print(bancor_dex.get_price_ticker(to_token='BNT', from_token='ETH', display_currency='ETH'))
+    # print(bancor_dex.get_available_pairs())
 
     # Curve API
-    print(curve_fi_dex.a('compound'))
-    print(curve_fi_dex.total_supply('compound'))
-    print(curve_fi_dex.get_virtual_price('compound'))
-    print(curve_fi_dex.coins('compound', 1))
-    print(curve_fi_dex.balances('compound', 1))
-    print(curve_fi_dex.future_fee('compound'))
-    print(curve_fi_dex.future_owner('compound'))
-    print(curve_fi_dex.name('compound'))
-    print(curve_fi_dex.symbol('compound'))
-    print(curve_fi_dex.decimals('compound'))
+    # print(curve_fi_dex.a('compound'))
+    # print(curve_fi_dex.total_supply('compound'))
+    # print(curve_fi_dex.get_virtual_price('compound'))
+    # print(curve_fi_dex.coins('compound', 1))
+    # print(curve_fi_dex.balances('compound', 1))
+    # print(curve_fi_dex.future_fee('compound'))
+    # print(curve_fi_dex.future_owner('compound'))
+    # print(curve_fi_dex.name('compound'))
+    # print(curve_fi_dex.symbol('compound'))
+    # print(curve_fi_dex.decimals('compound'))
 
     # Synthetix API
-    print(synthetix_dex.graph_request('snxholders', ['id', 'balanceOf', 'collateral', 'transferable']))
-    print(synthetix_dex.graph_request('synthetixes'))
-    print(synthetix_dex.graph_request('transfers'))
-    print(synthetix_dex.graph_request('issueds'))
-    print(synthetix_dex.graph_request('issuers'))
-    print(synthetix_dex.graph_request('burneds'))
-    print(synthetix_dex.graph_request('contractUpdateds'))
-    print(synthetix_dex.graph_request('rewardEscrowHolders'))
-    print(synthetix_dex.graph_request('feesClaimeds'))
+    # print(synthetix_dex.graph_request('snxholders', ['id', 'balanceOf', 'collateral', 'transferable']))
+    # print(synthetix_dex.graph_request('synthetixes'))
+    # print(synthetix_dex.graph_request('transfers'))
+    # print(synthetix_dex.graph_request('issueds'))
+    # print(synthetix_dex.graph_request('issuers'))
+    # print(synthetix_dex.graph_request('burneds'))
+    # print(synthetix_dex.graph_request('contractUpdateds'))
+    # print(synthetix_dex.graph_request('rewardEscrowHolders'))
+    # print(synthetix_dex.graph_request('feesClaimeds'))
+
+    # Idle Finance API
+    print(idle_dex.get_aprs('dai', 'max'))
+    print(idle_dex.total_supply('usdt', 'risk'))
+    print(idle_dex.total_supply('usdc', 'max'))
+    print(idle_dex.all_available_tokens('dai', 'max', 1))

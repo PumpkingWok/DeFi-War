@@ -28,6 +28,35 @@ uni_knc_token = Web3.toChecksumAddress('0x49c4f9bc14884f6210F28342ceD592A633801a
 uni_weth_token = Web3.toChecksumAddress('0xA2881A90Bf33F03E7a3f803765Cd2ED5c8928dFb')
 uni_zrx_token = Web3.toChecksumAddress('0xaE76c84C9262Cdb9abc0C2c8888e62Db8E22A0bF')
 
+# Idle Token Addresses
+
+idle_fi_params = {
+    'dai': {
+        'max': {
+            'address': Web3.toChecksumAddress('0x78751B12Da02728F467A44eAc40F5cbc16Bd7934')
+        },
+        'risk': {
+            'address': Web3.toChecksumAddress('0x1846bdfDB6A0f5c473dEc610144513bd071999fB')
+        }
+    },
+    'usdc': {
+        'max': {
+            'address': Web3.toChecksumAddress('0x12B98C621E8754Ae70d0fDbBC73D6208bC3e3cA6')
+        },
+        'risk': {
+            'address': Web3.toChecksumAddress('0xcDdB1Bceb7a1979C6caa0229820707429dd3Ec6C')
+        }
+    },
+    'usdt': {
+        'max': {
+            'address': Web3.toChecksumAddress('0x63D27B3DA94A9E871222CB0A32232674B02D2f2D')
+        },
+        'risk': {
+            'address': Web3.toChecksumAddress('0x42740698959761baf1b06baa51efbd88cb1d862b')
+        }
+    }
+}
+
 # Curve_fi Addresses
 
 curve_fi_params = {
